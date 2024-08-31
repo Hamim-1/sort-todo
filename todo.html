@@ -1,0 +1,38 @@
+<!doctype html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body>
+
+    <div class="mx-auto my-5 w-fit flex flex-col space-y-5">
+
+        <select class="bg-black text-white" onclick="sortTask(this)">
+            <option value="all">All</option>
+            <option value="complete">Completed</option>
+            <option value="uncomplete">Uncompleted</option>
+        </select>
+
+        <div id="list">
+            <div class="uncomplete">
+                <p>one</p>
+            </div>
+            <div class="complete">
+                <p>two</p>
+            </div>
+            <div class="uncomplete">
+                <p>three</p>
+            </div>
+            <div class="complete">
+                <p>four</p>
+            </div>
+        </div>
+    </div>
+</body>
+<script src="todo.js"></script>
+
+</html>
