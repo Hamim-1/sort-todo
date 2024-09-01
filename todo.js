@@ -2,6 +2,7 @@ const list = document.getElementById('list');
 
 function showAllTask() {
     const allTask = list.querySelectorAll('div');
+    console.log(allTask);
 
 
     allTask.forEach(task => {

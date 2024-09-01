@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <input type="text" id="input">
+
+
+
+    <button onclick="add()">add</button>
+    <select onclick="sort(this.value)">
+        <option value="com">Com</option>
+        <option value="uncom">unCom</option>
+        <option value="all">all</option>
+    </select>
+
+    <div id="list">
+
+    </div>
+
+    <script>
+        const userInput = document.getElementById('input');
+        const list = document.getElementById('list');
+        function deleteTask(task) {
+            task.classList.toggle('uncom');
+
+        }
+
+        function add() {
+            const div = document.createElement('div');
+            div.className = 'uncom';
+            div.innerHTML = `
+            
+    <h2>${userInput.value}</h2>
+    <p onclick="deleteTask(this.parentNode)">Done</p>
+            `;
+            list.appendChild(div)
+        }
+
+        function sort(sortMethod) {
+            const allTask = list.querySelectorAll('div');
+            allTask.forEach(task => {
+                if (sortMethod === 'com') {
+                    if (task.classList.contains('uncom')) {
+                        task.style.display = 'none';
+                    } else {
+                        task.style.display = 'block';
+                    }
+                } else if (sortMethod === 'uncom') {
+                    if (task.classList.contains('uncom')) {
+                        task.style.display = 'block';
+                    } else {
+                        task.style.display = 'none';
+                    }
+                } else if (sortMethod === 'all') {
+                    task.style.display = 'block'
+                }
+
+
+            });
+        }
+    </script>
+</body>
+
+</html>
